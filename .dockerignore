@@ -1,0 +1,9 @@
+.env
+.env.local
+venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+*.md
+et1288_ap_3499_2345/

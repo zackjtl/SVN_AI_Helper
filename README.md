@@ -1,6 +1,6 @@
 # SVN AI Helper
 
-本地SVN操作AI輔助。以自然語言查詢、Checkout、Merge SVN
+SVN AI輔助系統，以自然語言查詢、checkout、merge SVN。
 
 **所需套件：** Python 3.10+
 
@@ -34,7 +34,26 @@ git clone git@github.com:zackjtl/SVN_AI_Helper.git
 cd SVN_AI_Helper
 ```
 
-### 2. 建立虛擬環境並安裝依賴
+---
+
+## 安裝方式一：直接雙擊 `start.bat`（推薦，一般使用者）
+
+1. 確認壓縮包完整解壓（內含 `python-3.13` 與 `start.bat`）。
+2. 複製 `.env.example` 為 `.env`，在 `.env` 中至少填入 `OPENAI_API_KEY`。
+3. 雙擊 `start.bat`。
+   - 第一次執行會自動：
+     - 使用內建的 `python-3.13\python.exe`
+     - 安裝 pip（若尚未安裝且包內有 `get-pip.py`）
+     - 安裝 `requirements.txt` 內依賴
+4. 瀏覽器開啟 `http://127.0.0.1:8001`。
+
+之後每次只要再雙擊 `start.bat` 即可啟動服務。
+
+---
+
+## 安裝方式二：手動建立虛擬環境（給熟悉 Python 的使用者）
+
+### 1. 建立虛擬環境並安裝依賴
 
 ```bash
 python -m venv venv
@@ -46,7 +65,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. 設定環境變數
+### 2. 設定環境變數
 
 複製範例設定檔並編輯：
 
@@ -63,15 +82,16 @@ copy .env.example .env
 
 其餘變數有預設值，可依需要修改（見下方「環境變數」）。
 
-### 4. 啟動服務
+### 3. 啟動服務
 
 ```bash
-uvicorn app:app --host 127.0.0.1 --port 8000
+uvicorn app:app --host 127.0.0.1 --port 8001
 ```
 
-瀏覽器開啟 **http://127.0.0.1:8000** 即可使用。
+或直接**雙擊 `start.bat`**（首次會自動建立虛擬環境並安裝套件）。  
+瀏覽器開啟 **http://127.0.0.1:8001** 即可使用。
 
-更詳細的安裝步驟（含 Python 安裝、虛擬環境說明、常見問題）請見 [安裝與啟用.md](./安裝與啟用.md)。
+更詳細的安裝步驟（含一鍵啟動、隨附嵌入式 Python、虛擬環境、打包方式）請見 [安裝與啟用.md](./安裝與啟用.md)。
 
 ---
 
@@ -99,10 +119,13 @@ uvicorn app:app --host 127.0.0.1 --port 8000
 ```
 svn-ai-helper/
 ├── app.py              # FastAPI 應用與 AI 對話／工具邏輯
-├── requirements.txt   # Python 依賴
+├── run.py              # 單一啟動入口（python run.py / 打包用）
+├── start.bat            # 一鍵啟動（自動建 venv、安裝套件後啟動）
+├── requirements.txt    # Python 依賴
 ├── .env.example        # 環境變數範例（複製為 .env 使用）
+├── Dockerfile          # Docker 建置用（選用）
 ├── README.md           # 本說明
-└── 安裝與啟用.md       # 詳細安裝與啟用步驟（含無網頁經驗者）
+└── 安裝與啟用.md       # 詳細安裝與啟用步驟（含一鍵啟動、打包方式）
 ```
 
 ---
