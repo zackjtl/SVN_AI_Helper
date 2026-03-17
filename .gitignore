@@ -1,0 +1,25 @@
+# 勿上傳含 API key 的設定
+.env
+.env.local
+*.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.eggs/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 本機 checkout 或測試用目錄（非專案程式碼）
+et1288_ap_3499_2345/
