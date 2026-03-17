@@ -1,6 +1,8 @@
 # SVN AI Helper
 
-以自然語言操作 SVN：透過 OpenAI（或相容 API）的 function calling，在本機安全執行 `svn log`、`checkout`、`merge` 等指令，並可讀寫工作區檔案。適合需要常查 revision、比對 branch、套用變更的團隊使用。
+本地SVN操作AI輔助。以自然語言查詢、Checkout、Merge SVN
+
+**所需套件：** Python 3.10+
 
 ---
 
